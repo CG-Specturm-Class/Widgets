@@ -17,6 +17,19 @@ class UTextBlock;
 class UBackgroundBlur;
 class UWidgetAnimation;
 
+USTRUCT(BlueprintType)
+struct FObjectiveText
+{
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FText Title;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	FText Descripton;
+};
+
+
+
+
 UCLASS()
 class ESCAPEROOM_API UObjectiveHUD : public UUserWidget
 {
@@ -61,6 +74,9 @@ private:
 
 	UPROPERTY(BlueprintReadOnly, Transient, meta = (BindWidgetAnim, AllowPrivateAccess))
 	UWidgetAnimation* FadeIn;
+
+	UPROPERTY(BlueprintReadOnly, Transient, meta = (BindWidgetAnim, AllowPrivateAccess))
+	UWidgetAnimation* FadeInTwo;
 
 	//Functions
 	/*UFUNCTION()

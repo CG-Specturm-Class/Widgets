@@ -5,7 +5,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
 #include "Blueprint/UserWidget.h"
+#include "ObjectiveHUD.h"
 #include "EscapeRoomGameMode.generated.h"
+
+DECLARE_EVENT(EscapeRoomGameMode, FGameStarted);
+
 
 UCLASS(minimalapi)
 class AEscapeRoomGameMode : public AGameModeBase
@@ -21,7 +25,14 @@ public:
 	TSubclassOf<UUserWidget> ObjectiveWidgetClass;
 
 	UPROPERTY()
-	UUserWidget* ObjectiveWidget = nullptr;
+	UObjectiveHUD* ObjectiveWidget = nullptr;
+
+
+	FGameStarted OnStartedEvent;
+
+
+	//functions
+	void PlayerEnteredGame();
 };
 
 

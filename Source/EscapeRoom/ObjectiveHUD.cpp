@@ -31,14 +31,18 @@ void UObjectiveHUD::SetNewObjective(FText ObjectivesText, int32 ObjectiveNum)
 	switch (ObjectiveNum) //cyclying for when there is more than one objective
 	{
 		case 0:
+			PlayAnimation(FadeIn, 0.0f, 1, EUMGSequencePlayMode::Forward, 3.0f);
 			ObjectiveText->SetText(LText);
-			ObjectiveText->SetFont(FSlateFontInfo("Roboto", 20));
+			//ObjectiveText->SetFont(FSlateFontInfo("Roboto", 20));
 			ObjectiveText->SetColorAndOpacity(FLinearColor::White);
+			ObjectiveText->SetVisibility(ESlateVisibility::Visible);
 			break;
 		case 1:
+			PlayAnimation(FadeInTwo, 0.0f, 1, EUMGSequencePlayMode::Forward, 3.0f);
 			ObjectiveTextTwo->SetText(LText);
-			ObjectiveTextTwo->SetFont(FSlateFontInfo("Roboto", 20));
+			//ObjectiveTextTwo->SetFont(FSlateFontInfo("Roboto", 20));
 			ObjectiveTextTwo->SetColorAndOpacity(FLinearColor::White);
+			ObjectiveTextTwo->SetVisibility(ESlateVisibility::Visible);
 			break;
 	}
 }
@@ -95,16 +99,5 @@ void UObjectiveHUD::ToggleObjective(int32 ObjectiveNum, bool IsHidden, bool Clea
 				}
 				break;
 		}
-	}
-}
-
-void UObjectiveHUD::UpdateObjectiveText()
-{
-	if (ObjectiveText)
-	{
-		FText NewObjectiveText = FText::FromString("OBJECTIVE: LOCATE BLUE BUTTON");
-		ObjectiveText->SetText(NewObjectiveText);
-
-		PlayAnimation(FadeIn, 0.0f, 1, EUMGSequencePlayMode::Forward, 4.0f);
 	}
 }
