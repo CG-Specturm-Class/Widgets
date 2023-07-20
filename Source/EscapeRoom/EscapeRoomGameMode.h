@@ -24,7 +24,7 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<UUserWidget> ObjectiveWidgetClass;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Objective Widget")
 	UObjectiveHUD* ObjectiveWidget = nullptr;
 
 
